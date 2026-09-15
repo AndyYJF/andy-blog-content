@@ -62,7 +62,7 @@ Moments use a similar block plus `images` / `topics` where applicable.
 
 ### Sync policy
 
-Content is exported from production on a schedule (VPS job → Typecho snapshot → Markdown → this repository). History is append-only git commits; force-pushes are not part of the normal flow.
+Content is exported from production on a **daily systemd timer** (`blog-content-backup.timer`, ~04:30 Asia/Shanghai): Typecho snapshot → Markdown → this repository. History is append-only git commits; force-pushes are not part of the normal flow.
 
 If a post is deleted or withdrawn on the live site, the next sync removes or updates the corresponding file here so the mirror stays truthful.
 
@@ -112,7 +112,7 @@ The [andy-blog](https://github.com/AndyYJF/andy-blog) site/code repository has i
 
 ### 同步策略
 
-生产机定时导出 Typecho 快照 → 生成 Markdown → 推送到本仓库。正常流程为追加式 commit，不以强推为常态。线上删除或撤回的内容，会在下次同步时从本仓移除或更新，以保持镜像真实。
+生产机每天定时（`blog-content-backup.timer`，约北京时间 04:30）导出 Typecho 快照 → 生成 Markdown → 推送到本仓库。正常流程为追加式 commit，不以强推为常态。线上删除或撤回的内容，会在下次同步时从本仓移除或更新，以保持镜像真实。
 
 ### 许可
 
